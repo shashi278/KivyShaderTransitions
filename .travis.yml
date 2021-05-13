@@ -11,7 +11,7 @@ matrix:
 install:
 - pip install pycodestyle
 script:
-- pycodestyle kivytransitions
+- pycodestyle kivytransitions/__init__.py
 after_failure:
 - sleep 10;
 - echo == End ==
