@@ -9,11 +9,13 @@ Contains a variety of shader screen transitions to choose from
 
 Install: `pip install kivytransitions`
 
-Import: ```python
+Import:
+```python
 from kivytransitions.transitions import Cube
 ```
 
-Use: ```python
+Use:
+```python
 # ....
 screenmanager.transition = Cube(duration=2, direction="lr") #two available directions: "lr" and "rl"
 # ....
