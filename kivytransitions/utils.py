@@ -10,11 +10,14 @@ code_imports = """
 from .base import CustomTransition
 from kivy.properties import StringProperty
 
+available_transitions = [{}]
+__all__ = available_transitions
 """
 
 code_classes = """
 class {}(CustomTransition):
     glsl_file = StringProperty("{}.glsl")
+
 
 """
 
@@ -23,11 +26,14 @@ code_file = "transitions/__init__.py"
 
 
 classes = ""
+class_str = '"{}",'
+list_classes = ""
 for each in shader_list:
     class_name = each.split("/")[-1].split(".")[0]
     classes += code_classes.format(class_name, class_name)
+    list_classes += class_str.format(class_name)
 
-final_code = code_imports + classes
+final_code = code_imports.format(list_classes) + classes
 
 try:
     with open(code_file, "w") as f:
